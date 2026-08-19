@@ -4,7 +4,7 @@ A browser-based grocery list manager that accepts voice commands to add, remove,
 
 ---
 
-## Demo
+## 🌐Demo
 
 **Live app:** `<add after deployment>`
 
