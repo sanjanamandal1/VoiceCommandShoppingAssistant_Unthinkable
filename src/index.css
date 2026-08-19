@@ -1,37 +1,39 @@
 /* ============================================================
-   Tokens — LocalDrop-inspired neo-brutalist palette
+   Tokens — diverged from LocalDrop: forest green borders,
+   tangerine primary, butter yellow secondary, warm parchment bg
    ============================================================ */
 :root {
-  --bg:          #F0EEE6;      /* warm cream — same paper feel as LocalDrop */
-  --bg-card:     #FAFAF7;
-  --bg-muted:    #EBEBDF;
+  --bg:          #EDE7DA;
+  --bg-card:     #FAF8F2;
+  --bg-muted:    #E3DDD0;
 
-  --border:      #18181B;      /* thick near-black borders throughout */
-  --border-thin: #D4D2C8;
+  --border:      #243423;      /* deep forest green — not pure black */
+  --border-mid:  #3D5C3A;
+  --border-thin: #C8C2B2;
 
-  --text:        #18181B;
-  --text-2:      #4A4A4A;
-  --text-3:      #888880;
+  --text:        #1C2B1C;
+  --text-2:      #445244;
+  --text-3:      #8A9680;
 
-  --pink:        #FF2D78;      /* hot pink — LocalDrop primary */
-  --pink-fg:     #FFFFFF;
-  --pink-dim:    rgba(255, 45, 120, 0.1);
-  --lime:        #C8F135;      /* lime green — LocalDrop secondary */
-  --lime-fg:     #18181B;
-  --accent:      #18181B;
-  --accent-fg:   #FAFAF7;
+  --orange:      #F05A28;      /* tangerine — distinct from LocalDrop pink */
+  --orange-fg:   #FFFFFF;
+  --orange-dim:  rgba(240, 90, 40, 0.1);
+  --yellow:      #FFE135;      /* butter — distinct from LocalDrop lime */
+  --yellow-fg:   #1C2B1C;
+  --teal:        #0B6E5C;      /* third accent for search/active states */
+  --teal-dim:    rgba(11, 110, 92, 0.1);
 
-  --success:     #1A8A4A;
-  --success-bg:  #EDFBF1;
-  --danger:      #E0321A;
-  --danger-bg:   #FEF1EE;
-  --warn:        #D97706;
-  --warn-bg:     #FEFCE8;
+  --success:     #1A6B42;
+  --success-bg:  #EDFAF3;
+  --danger:      #C93B1A;
+  --danger-bg:   #FEF0EB;
+  --warn:        #B97A00;
+  --warn-bg:     #FFF9E6;
 
-  /* Neo-brutalist shadow — flat, offset, hard-edged */
-  --shadow-card: 4px 4px 0px #18181B;
-  --shadow-sm:   2px 2px 0px #18181B;
-  --shadow-btn:  3px 3px 0px #18181B;
+  /* Hard flat shadows — same brutalist idea, green-tinted */
+  --shadow-card: 4px 4px 0px var(--border);
+  --shadow-sm:   2px 2px 0px var(--border);
+  --shadow-btn:  3px 3px 0px var(--border);
 
   --r:    12px;
   --r-sm: 8px;
@@ -46,12 +48,10 @@ html { font-size: 16px; }
 
 body {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  /* grid-paper background — signature LocalDrop texture */
+  /* dot-grid — different texture from LocalDrop's line grid */
   background-color: var(--bg);
-  background-image:
-    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-image: radial-gradient(circle, rgba(36,52,35,0.18) 1px, transparent 1px);
+  background-size: 22px 22px;
   color: var(--text);
   min-height: 100vh;
   line-height: 1.55;
@@ -59,11 +59,11 @@ body {
 }
 
 ul { list-style: none; }
-a { color: var(--pink); font-weight: 500; }
+a { color: var(--teal); font-weight: 500; }
 a:hover { text-decoration: underline; }
 
 :focus-visible {
-  outline: 2.5px solid var(--pink);
+  outline: 2.5px solid var(--orange);
   outline-offset: 2px;
   border-radius: var(--r-sm);
 }
@@ -101,25 +101,45 @@ a:hover { text-decoration: underline; }
   gap: 10px;
 }
 
-/* The lime pill tag — same style as LocalDrop's "CREATOR FOOTFALL ENGINE" badge */
+/* Butter yellow pill — same shape as LocalDrop but different color */
 .header-badge {
-  font-size: 0.6rem;
-  font-weight: 700;
+  font-size: 0.58rem;
+  font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  background: var(--lime);
-  color: var(--lime-fg);
+  background: var(--yellow);
+  color: var(--yellow-fg);
   border: 1.5px solid var(--border);
   border-radius: var(--r-pill);
   padding: 3px 10px;
   box-shadow: 1px 1px 0 var(--border);
 }
 
-.header-sub {
-  font-size: 0.75rem;
-  color: var(--text-3);
-  font-weight: 400;
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+
+/* Live counter — teal pill, appears when items exist */
+.header-count {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: var(--teal);
+  color: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: 3px 10px;
+  box-shadow: 1px 1px 0 var(--border);
+  animation: pop-in 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.75); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.header-sub { font-size: 0.75rem; color: var(--text-3); }
 
 /* ============================================================
    Main
@@ -161,16 +181,6 @@ a:hover { text-decoration: underline; }
 }
 
 /* ============================================================
-   Card base — thick border + offset shadow
-   ============================================================ */
-.card {
-  background: var(--bg-card);
-  border: 2px solid var(--border);
-  border-radius: var(--r);
-  box-shadow: var(--shadow-card);
-}
-
-/* ============================================================
    Unsupported banner
    ============================================================ */
 .unsupported-banner {
@@ -185,7 +195,7 @@ a:hover { text-decoration: underline; }
 }
 
 /* ============================================================
-   Voice section
+   Voice section — orange accent stripe along the top
    ============================================================ */
 .voice-section {
   background: var(--bg-card);
@@ -196,6 +206,7 @@ a:hover { text-decoration: underline; }
   display: flex;
   align-items: center;
   gap: 20px;
+  border-top: 4px solid var(--orange);   /* accent stripe — differentiator */
 }
 
 /* ============================================================
@@ -230,34 +241,32 @@ a:hover { text-decoration: underline; }
 
 .mic-button:disabled { opacity: 0.35; cursor: not-allowed; }
 
-/* Listening — hot pink fill, ring animation */
+/* Listening — tangerine fill */
 .mic-button--listening {
-  background: var(--pink);
+  background: var(--orange);
   border-color: var(--border);
   color: #fff;
-  box-shadow: var(--shadow-sm);
-  animation: mic-shake 0.4s ease infinite alternate;
+  animation: mic-shake 0.45s ease infinite alternate;
 }
 
 @keyframes mic-shake {
-  from { transform: rotate(-1deg) scale(1.01); }
-  to   { transform: rotate(1deg) scale(1.03); }
+  from { transform: rotate(-1.2deg) scale(1.01); }
+  to   { transform: rotate(1.2deg)  scale(1.04); }
 }
 
-/* Expanding ring while listening */
 .mic-button--listening::before {
   content: '';
   position: absolute;
-  inset: -6px;
+  inset: -5px;
   border-radius: 50%;
-  border: 2px solid var(--pink);
+  border: 2px solid var(--orange);
   animation: ring-out 1.3s ease-out infinite;
   pointer-events: none;
 }
 
 @keyframes ring-out {
-  0%   { inset: -4px; opacity: 0.7; }
-  100% { inset: -20px; opacity: 0; }
+  0%   { inset: -4px;  opacity: 0.7; }
+  100% { inset: -22px; opacity: 0; }
 }
 
 .mic-button--processing {
@@ -266,12 +275,10 @@ a:hover { text-decoration: underline; }
 }
 
 .mic-icon { font-size: 1.3rem; line-height: 1; pointer-events: none; }
-
 .mic-label {
   position: absolute;
   width: 1px; height: 1px;
-  overflow: hidden; clip: rect(0 0 0 0);
-  white-space: nowrap;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
 
 /* ============================================================
@@ -290,8 +297,8 @@ a:hover { text-decoration: underline; }
 
 .transcript-hint {
   font-size: 0.875rem;
-  color: var(--pink);
-  font-weight: 500;
+  color: var(--orange);
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -302,23 +309,18 @@ a:hover { text-decoration: underline; }
   display: inline-block;
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: var(--pink);
+  background: var(--orange);
   animation: blink 0.8s ease-in-out infinite;
 }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50%       { opacity: 0.2; }
+  50%       { opacity: 0.15; }
 }
 
 .transcript-interim { font-size: 0.9rem; color: var(--text-3); font-style: italic; }
 .transcript-label   { font-size: 0.72rem; color: var(--text-3); margin-right: 4px; }
-
-.transcript-final {
-  font-size: 0.92rem;
-  color: var(--text);
-  font-weight: 500;
-}
+.transcript-final   { font-size: 0.92rem; color: var(--text); font-weight: 500; }
 
 .transcript-confirmation {
   font-size: 0.85rem;
@@ -329,12 +331,9 @@ a:hover { text-decoration: underline; }
 .transcript-error { font-size: 0.85rem; color: var(--danger); font-weight: 500; }
 
 /* ============================================================
-   Add item form — pill inputs like LocalDrop
+   Add item form — pill inputs
    ============================================================ */
-.add-item-form {
-  display: flex;
-  gap: 8px;
-}
+.add-item-form { display: flex; gap: 8px; }
 
 .add-item-form__input {
   flex: 1;
@@ -348,14 +347,14 @@ a:hover { text-decoration: underline; }
   font-family: inherit;
   font-weight: 500;
   box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.1s, transform 0.1s;
+  transition: box-shadow 0.1s, border-color 0.1s, transform 0.1s;
 }
 
 .add-item-form__input::placeholder { color: var(--text-3); font-weight: 400; }
 .add-item-form__input:focus {
   outline: none;
-  box-shadow: 3px 3px 0 var(--pink);
-  border-color: var(--pink);
+  border-color: var(--orange);
+  box-shadow: 3px 3px 0 var(--orange);
   transform: translate(-1px, -1px);
 }
 
@@ -369,32 +368,31 @@ a:hover { text-decoration: underline; }
   padding: 0 8px;
   font-size: 0.9rem;
   font-family: inherit;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   box-shadow: var(--shadow-sm);
 }
 
 .add-item-form__qty:focus {
   outline: none;
-  border-color: var(--pink);
-  box-shadow: 2px 2px 0 var(--pink);
+  border-color: var(--orange);
+  box-shadow: 2px 2px 0 var(--orange);
 }
 
-/* Primary button — hot pink, hard shadow, LocalDrop style */
+/* Tangerine primary button */
 .add-item-form__submit {
   height: 46px;
   padding: 0 22px;
-  background: var(--pink);
+  background: var(--orange);
   border: 2px solid var(--border);
   border-radius: var(--r-pill);
-  color: var(--pink-fg);
+  color: var(--orange-fg);
   font-size: 0.875rem;
   font-family: inherit;
   font-weight: 700;
   cursor: pointer;
   box-shadow: var(--shadow-btn);
   transition: transform 0.1s, box-shadow 0.1s;
-  letter-spacing: 0.01em;
 }
 
 .add-item-form__submit:hover:not(:disabled) {
@@ -404,7 +402,7 @@ a:hover { text-decoration: underline; }
 
 .add-item-form__submit:active:not(:disabled) {
   transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--border);
+  box-shadow: none;
 }
 
 .add-item-form__submit:disabled { opacity: 0.35; cursor: not-allowed; }
@@ -412,11 +410,7 @@ a:hover { text-decoration: underline; }
 /* ============================================================
    Shopping list
    ============================================================ */
-.shopping-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+.shopping-list { display: flex; flex-direction: column; gap: 10px; }
 
 .shopping-list--empty {
   background: var(--bg-card);
@@ -429,7 +423,7 @@ a:hover { text-decoration: underline; }
 .shopping-list__empty-msg { color: var(--text-3); font-size: 0.875rem; line-height: 1.7; }
 .shopping-list__no-results { color: var(--text-3); font-size: 0.875rem; font-style: italic; padding: 6px 0; }
 
-/* Category group — each gets the card treatment */
+/* Category group */
 .list-category {
   background: var(--bg-card);
   border: 2px solid var(--border);
@@ -438,15 +432,36 @@ a:hover { text-decoration: underline; }
   box-shadow: var(--shadow-card);
 }
 
+/* Heading — butter yellow strip with emoji + item count */
 .list-category__heading {
-  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-2);
-  padding: 8px 16px;
-  background: var(--lime);
+  color: var(--text);
+  padding: 9px 14px;
+  background: var(--yellow);
   border-bottom: 2px solid var(--border);
+}
+
+.list-category__emoji {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.list-category__count {
+  margin-left: auto;
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: 1px 7px;
+  color: var(--text-2);
+  box-shadow: 1px 1px 0 var(--border);
 }
 
 .list-category__items { padding: 0; }
@@ -466,10 +481,7 @@ a:hover { text-decoration: underline; }
 .item-row:last-child { border-bottom: none; }
 .item-row:hover { background: var(--bg-muted); }
 
-.item-row--checked .item-row__name {
-  text-decoration: line-through;
-  color: var(--text-3);
-}
+.item-row--checked .item-row__name { text-decoration: line-through; color: var(--text-3); }
 
 .item-row__check-label {
   display: flex;
@@ -482,7 +494,7 @@ a:hover { text-decoration: underline; }
   color: var(--text);
 }
 
-/* Custom checkbox — thick bordered, pink fill */
+/* Custom checkbox — thick green border, orange fill */
 .item-row__check-label input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
@@ -493,13 +505,13 @@ a:hover { text-decoration: underline; }
   background: var(--bg-card);
   cursor: pointer;
   flex-shrink: 0;
-  transition: background 0.12s, border-color 0.12s;
+  transition: background 0.12s;
   position: relative;
   box-shadow: 1px 1px 0 var(--border);
 }
 
 .item-row__check-label input[type='checkbox']:checked {
-  background: var(--pink);
+  background: var(--orange);
   border-color: var(--border);
 }
 
@@ -518,7 +530,7 @@ a:hover { text-decoration: underline; }
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--text-2);
-  background: var(--lime);
+  background: var(--yellow);
   border: 1.5px solid var(--border);
   border-radius: 5px;
   padding: 1px 7px;
@@ -568,8 +580,8 @@ a:hover { text-decoration: underline; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--pink-dim);
-  border: 1.5px solid var(--pink);
+  background: var(--teal-dim);
+  border: 1.5px solid var(--teal);
   border-radius: var(--r-sm);
   padding: 8px 14px;
   font-size: 0.82rem;
@@ -579,22 +591,22 @@ a:hover { text-decoration: underline; }
 .search-active-bar__clear {
   background: none;
   border: none;
-  color: var(--pink);
+  color: var(--teal);
   font-family: inherit;
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
 
 .search-active-bar__clear:hover { text-decoration: underline; }
 
 /* ============================================================
-   Confirmation dialog — thick-bordered modal, spring animation
+   Confirmation dialog
    ============================================================ */
 .confirmation-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(28, 43, 28, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -606,6 +618,7 @@ a:hover { text-decoration: underline; }
   background: var(--bg-card);
   border: 2.5px solid var(--border);
   border-radius: var(--r);
+  border-top: 4px solid var(--orange);
   padding: 28px 26px;
   max-width: 360px;
   width: 100%;
@@ -651,7 +664,7 @@ a:hover { text-decoration: underline; }
 }
 
 .confirmation-dialog__btn--confirm {
-  background: var(--pink);
+  background: var(--orange);
   color: #fff;
   box-shadow: var(--shadow-btn);
 }
@@ -671,6 +684,7 @@ a:hover { text-decoration: underline; }
   border-radius: var(--r);
   padding: 16px;
   box-shadow: var(--shadow-card);
+  border-top: 4px solid var(--yellow);
 }
 
 .suggestions-panel__heading {
@@ -705,13 +719,8 @@ a:hover { text-decoration: underline; }
   padding: 1px 5px;
 }
 
-.suggestions-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+.suggestions-list { display: flex; flex-wrap: wrap; gap: 6px; }
 
-/* Chips — pill shape, hard border, hover flips to pink */
 .suggestion-chip {
   background: var(--bg-card);
   border: 1.5px solid var(--border);
@@ -727,34 +736,32 @@ a:hover { text-decoration: underline; }
 }
 
 .suggestion-chip:hover {
-  background: var(--pink);
+  background: var(--orange);
   color: #fff;
   border-color: var(--border);
   transform: translate(-1px, -1px);
   box-shadow: 3px 3px 0 var(--border);
 }
 
-.suggestion-chip:active {
-  transform: translate(1px, 1px);
-  box-shadow: none;
+.suggestion-chip:active { transform: translate(1px, 1px); box-shadow: none; }
+
+/* Seasonal chips — yellow tinted */
+.suggestion-chip--seasonal {
+  background: var(--yellow);
+  color: var(--yellow-fg);
+  border-color: var(--border);
 }
 
-.suggestion-chip--seasonal { border-color: var(--border); background: var(--lime); color: var(--lime-fg); }
-.suggestion-chip--seasonal:hover { background: var(--pink); color: #fff; }
-.suggestion-chip--sub { border-color: var(--border); }
+.suggestion-chip--seasonal:hover { background: var(--orange); color: #fff; }
 
-.suggestion-chip__badge {
-  font-size: 0.65rem;
-  color: var(--text-3);
-  margin-left: 4px;
-}
+.suggestion-chip__badge { font-size: 0.65rem; color: var(--text-3); margin-left: 4px; }
 
 .substitute-group { margin-bottom: 8px; }
 .substitute-group:last-child { margin-bottom: 0; }
 .substitute-group__for { font-size: 0.75rem; color: var(--text-3); display: block; margin-bottom: 6px; }
 
 /* ============================================================
-   Search + filter panel
+   Search + filter panel — teal top stripe
    ============================================================ */
 .search-filter {
   background: var(--bg-card);
@@ -762,6 +769,7 @@ a:hover { text-decoration: underline; }
   border-radius: var(--r);
   padding: 16px;
   box-shadow: var(--shadow-card);
+  border-top: 4px solid var(--teal);
 }
 
 .search-filter__heading {
@@ -789,11 +797,7 @@ a:hover { text-decoration: underline; }
   letter-spacing: 0;
 }
 
-.search-filter__form {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 12px;
-}
+.search-filter__form { display: flex; gap: 6px; margin-bottom: 12px; }
 
 .search-filter__input {
   flex: 1;
@@ -813,17 +817,17 @@ a:hover { text-decoration: underline; }
 .search-filter__input::placeholder { color: var(--text-3); font-weight: 400; }
 .search-filter__input:focus {
   outline: none;
-  border-color: var(--pink);
-  box-shadow: 2px 2px 0 var(--pink);
+  border-color: var(--teal);
+  box-shadow: 2px 2px 0 var(--teal);
 }
 
 .search-filter__submit {
   height: 40px;
   padding: 0 16px;
-  background: var(--accent);
+  background: var(--teal);
   border: 2px solid var(--border);
   border-radius: var(--r-pill);
-  color: var(--accent-fg);
+  color: #fff;
   font-size: 0.875rem;
   font-family: inherit;
   font-weight: 700;
@@ -836,17 +840,10 @@ a:hover { text-decoration: underline; }
   transform: translate(-1px, -1px);
   box-shadow: 4px 4px 0 var(--border);
 }
-.search-filter__submit:active {
-  transform: translate(1px, 1px);
-  box-shadow: none;
-}
 
-.search-filter__filters {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 12px;
-}
+.search-filter__submit:active { transform: translate(1px, 1px); box-shadow: none; }
+
+.search-filter__filters { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
 
 .search-filter__filter-label {
   display: flex;
@@ -870,7 +867,7 @@ a:hover { text-decoration: underline; }
 }
 
 .search-filter__range {
-  accent-color: var(--pink);
+  accent-color: var(--teal);
   width: 100%;
   cursor: pointer;
 }
@@ -885,10 +882,7 @@ a:hover { text-decoration: underline; }
   overflow-y: auto;
 }
 
-.search-results__empty {
-  color: var(--text-3);
-  font-size: 0.85rem;
-}
+.search-results__empty { color: var(--text-3); font-size: 0.85rem; }
 
 .search-result-item {
   display: flex;
@@ -921,4 +915,5 @@ a:hover { text-decoration: underline; }
   .confirmation-dialog { padding: 22px 18px; }
   .add-item-form { flex-wrap: wrap; }
   .add-item-form__input { min-width: 0; }
+  .header-right { gap: 6px; }
 }

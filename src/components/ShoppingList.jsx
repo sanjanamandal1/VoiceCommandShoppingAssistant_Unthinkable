@@ -2,6 +2,19 @@ import React from 'react';
 import ItemRow from './ItemRow.jsx';
 import { CATEGORY_ORDER } from '../lib/categories.js';
 
+const CATEGORY_EMOJI = {
+  'Produce':        '🥦',
+  'Dairy':          '🥛',
+  'Bakery':         '🍞',
+  'Meat & Seafood': '🥩',
+  'Beverages':      '🧃',
+  'Snacks':         '🍿',
+  'Frozen':         '🧊',
+  'Pantry':         '🫙',
+  'Household':      '🧹',
+  'Other':          '📦',
+};
+
 export default function ShoppingList({ items, searchQuery, onRemove, onToggle, onClearChecked }) {
   const filtered = searchQuery
     ? items.filter((i) => i.name.toLowerCase().includes(searchQuery.toLowerCase()))
@@ -37,7 +50,11 @@ export default function ShoppingList({ items, searchQuery, onRemove, onToggle, o
 
       {orderedCategories.map((cat) => (
         <div key={cat} className="list-category">
-          <h2 className="list-category__heading">{cat}</h2>
+          <h2 className="list-category__heading">
+            <span className="list-category__emoji" aria-hidden="true">{CATEGORY_EMOJI[cat] || '📦'}</span>
+            {cat}
+            <span className="list-category__count">{groups[cat].length}</span>
+          </h2>
           <ul className="list-category__items">
             {groups[cat].map((item) => (
               <ItemRow key={item.id} item={item} onRemove={onRemove} onToggle={onToggle} />

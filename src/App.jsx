@@ -121,7 +121,14 @@ export default function App() {
           Voice Shopping
           <span className="header-badge">Assistant</span>
         </h1>
-        <span className="header-sub">Chrome recommended for voice</span>
+        <div className="header-right">
+          {items.length > 0 && (
+            <span className="header-count" aria-label={`${items.length} items on list`}>
+              {items.length} item{items.length !== 1 ? 's' : ''}
+            </span>
+          )}
+          <span className="header-sub">Chrome only</span>
+        </div>
       </header>
 
       <main className="app-main">
