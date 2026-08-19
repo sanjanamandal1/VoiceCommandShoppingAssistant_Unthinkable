@@ -7,8 +7,6 @@ const MAX_HISTORY = 50;
 // Static seasonal/on-sale suggestions — mock data, not live
 const SEASONAL = [
   { name: 'pumpkin', label: 'In season' },
-  { name: 'butternut squash', label: 'In season' },
-  { name: 'cranberries', label: 'In season' },
   { name: 'sweet potatoes', label: 'On sale (mock)' },
   { name: 'ginger', label: 'In season' },
 ];

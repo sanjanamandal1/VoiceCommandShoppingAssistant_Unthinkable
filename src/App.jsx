@@ -118,10 +118,10 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <h1 className="app-header__title">
-          <span className="header-dot" aria-hidden="true" />
           Voice Shopping
+          <span className="header-badge">Assistant</span>
         </h1>
-        <span style={{ fontSize: '0.78rem', color: 'var(--text-3)' }}>Chrome recommended for voice</span>
+        <span className="header-sub">Chrome recommended for voice</span>
       </header>
 
       <main className="app-main">
