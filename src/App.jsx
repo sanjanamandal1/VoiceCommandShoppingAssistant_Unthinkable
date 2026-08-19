@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { useSpeechRecognition, SUPPORTED_LANGS } from './hooks/useSpeechRecognition.js';
+import { useSpeechRecognition } from './hooks/useSpeechRecognition.js';
 import { useShoppingList } from './hooks/useShoppingList.js';
 import { parse } from './lib/parser.js';
 import MicButton from './components/MicButton.jsx';
@@ -19,9 +19,8 @@ function speak(text) {
 }
 
 export default function App() {
-  const [lang, setLang] = useState('en-US');
   const { state, transcript, interimTranscript, error, isSupported, start, stop, reset } =
-    useSpeechRecognition(lang);
+    useSpeechRecognition('en-US');
 
   const {
     items,
@@ -122,22 +121,7 @@ export default function App() {
           <span aria-hidden="true">🛒</span> Voice Shopping Assistant
         </h1>
 
-        <div className="lang-selector">
-          <label htmlFor="lang-select" className="lang-selector__label">
-            Recognition language:
-          </label>
-          <select
-            id="lang-select"
-            className="lang-selector__select"
-            value={lang}
-            onChange={(e) => setLang(e.target.value)}
-            aria-label="Speech recognition language"
-          >
-            {SUPPORTED_LANGS.map((l) => (
-              <option key={l.code} value={l.code}>{l.label}</option>
-            ))}
-          </select>
-        </div>
+
       </header>
 
       <main className="app-main">

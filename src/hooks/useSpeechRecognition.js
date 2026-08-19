@@ -1,12 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-// Supported recognition languages. Only en-US has full parser support;
-// es-ES changes the recognition language but the rule-based parser still operates in English.
-// Full multilingual NLP is out of scope — see README.
 export const SUPPORTED_LANGS = [
   { code: 'en-US', label: 'English (US)' },
-  { code: 'es-ES', label: 'Español (ES) — beta' },
-  { code: 'fr-FR', label: 'Français (FR) — beta' },
 ];
 
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;

@@ -20,7 +20,6 @@ Voice features require Chrome (or a Chromium-based browser) — the Web Speech A
 - Quantity extraction from voice: numeric ("add 2 bottles of water") and word-form ("add three bags of chips")
 - After each recognised command, the app speaks a confirmation back using `SpeechSynthesis` ("Added 2 bottles of water to your list.")
 - When the parser can't determine intent with confidence, a dialog appears asking "Did you mean: add X?" rather than silently doing nothing or guessing wrong
-- Language selector for recognition language (en-US, es-ES, fr-FR) — changes only the Web Speech API `lang` param; the command parser itself is English-only
 
 ### Smart Suggestions
 - Re-add suggestions based on localStorage removal history: items removed more often surface higher, filtered to exclude anything already on the current list (top 5 shown)
@@ -86,7 +85,6 @@ npm run build
 ## Known limitations
 
 - Voice input only works reliably in Chrome; Safari's Web Speech API support is inconsistent, Firefox has none.
-- The language selector changes the recognition language only — commands in Spanish or French are heard but still parsed by English regex patterns, so they'll almost always miss.
 - Product catalog is 18 hardcoded items with fictional prices; there's no real grocery data source.
 - Seasonal suggestions are a static list and are not date-aware — "In season" labels are illustrative only.
 - The ambiguity dialog only offers "add" as the fallback action; it doesn't attempt to infer remove or search from a low-confidence transcript.
