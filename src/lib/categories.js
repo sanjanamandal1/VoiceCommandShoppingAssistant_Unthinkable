@@ -1,0 +1,218 @@
+// Maps item keywords to grocery categories.
+// Simple lookup — not ML. Matching is done case-insensitively on item name substring.
+export const CATEGORY_MAP = {
+  // Dairy
+  milk: 'Dairy',
+  'almond milk': 'Dairy',
+  'oat milk': 'Dairy',
+  'soy milk': 'Dairy',
+  cheese: 'Dairy',
+  butter: 'Dairy',
+  yogurt: 'Dairy',
+  cream: 'Dairy',
+  'sour cream': 'Dairy',
+  'cottage cheese': 'Dairy',
+  cheddar: 'Dairy',
+  mozzarella: 'Dairy',
+  parmesan: 'Dairy',
+
+  // Produce
+  apple: 'Produce',
+  apples: 'Produce',
+  banana: 'Produce',
+  bananas: 'Produce',
+  orange: 'Produce',
+  oranges: 'Produce',
+  lemon: 'Produce',
+  lemons: 'Produce',
+  lime: 'Produce',
+  limes: 'Produce',
+  grape: 'Produce',
+  grapes: 'Produce',
+  strawberr: 'Produce', // prefix match covers strawberry/strawberries
+  blueberr: 'Produce',
+  raspberr: 'Produce',
+  tomato: 'Produce',
+  tomatoes: 'Produce',
+  potato: 'Produce',
+  potatoes: 'Produce',
+  onion: 'Produce',
+  onions: 'Produce',
+  garlic: 'Produce',
+  carrot: 'Produce',
+  carrots: 'Produce',
+  spinach: 'Produce',
+  lettuce: 'Produce',
+  broccoli: 'Produce',
+  cucumber: 'Produce',
+  pepper: 'Produce',
+  peppers: 'Produce',
+  avocado: 'Produce',
+  avocados: 'Produce',
+  zucchini: 'Produce',
+  mushroom: 'Produce',
+  mushrooms: 'Produce',
+  celery: 'Produce',
+  kale: 'Produce',
+  asparagus: 'Produce',
+  mango: 'Produce',
+  mangoes: 'Produce',
+  pineapple: 'Produce',
+  watermelon: 'Produce',
+  melon: 'Produce',
+  corn: 'Produce',
+
+  // Bakery
+  bread: 'Bakery',
+  bagel: 'Bakery',
+  bagels: 'Bakery',
+  muffin: 'Bakery',
+  muffins: 'Bakery',
+  croissant: 'Bakery',
+  croissants: 'Bakery',
+  baguette: 'Bakery',
+  roll: 'Bakery',
+  rolls: 'Bakery',
+  bun: 'Bakery',
+  buns: 'Bakery',
+  pita: 'Bakery',
+  tortilla: 'Bakery',
+  tortillas: 'Bakery',
+  wrap: 'Bakery',
+  cake: 'Bakery',
+  cookie: 'Bakery',
+  cookies: 'Bakery',
+
+  // Meat & Seafood
+  chicken: 'Meat & Seafood',
+  beef: 'Meat & Seafood',
+  pork: 'Meat & Seafood',
+  lamb: 'Meat & Seafood',
+  turkey: 'Meat & Seafood',
+  bacon: 'Meat & Seafood',
+  sausage: 'Meat & Seafood',
+  sausages: 'Meat & Seafood',
+  ham: 'Meat & Seafood',
+  salmon: 'Meat & Seafood',
+  tuna: 'Meat & Seafood',
+  shrimp: 'Meat & Seafood',
+  steak: 'Meat & Seafood',
+  mince: 'Meat & Seafood',
+  'ground beef': 'Meat & Seafood',
+
+  // Beverages
+  water: 'Beverages',
+  juice: 'Beverages',
+  soda: 'Beverages',
+  coffee: 'Beverages',
+  tea: 'Beverages',
+  'orange juice': 'Beverages',
+  'apple juice': 'Beverages',
+  wine: 'Beverages',
+  beer: 'Beverages',
+  'sparkling water': 'Beverages',
+  kombucha: 'Beverages',
+  lemonade: 'Beverages',
+  'energy drink': 'Beverages',
+  smoothie: 'Beverages',
+
+  // Snacks
+  chips: 'Snacks',
+  crackers: 'Snacks',
+  nuts: 'Snacks',
+  'mixed nuts': 'Snacks',
+  almonds: 'Snacks',
+  cashews: 'Snacks',
+  peanuts: 'Snacks',
+  popcorn: 'Snacks',
+  pretzels: 'Snacks',
+  granola: 'Snacks',
+  'granola bar': 'Snacks',
+  chocolate: 'Snacks',
+  candy: 'Snacks',
+  'ice cream': 'Frozen',
+  gummies: 'Snacks',
+
+  // Frozen
+  'frozen pizza': 'Frozen',
+  'frozen vegetables': 'Frozen',
+  'frozen fruit': 'Frozen',
+  'frozen meals': 'Frozen',
+  'frozen dinner': 'Frozen',
+
+  // Pantry
+  eggs: 'Pantry',
+  flour: 'Pantry',
+  sugar: 'Pantry',
+  salt: 'Pantry',
+  pepper: 'Pantry',
+  oil: 'Pantry',
+  'olive oil': 'Pantry',
+  'vegetable oil': 'Pantry',
+  vinegar: 'Pantry',
+  honey: 'Pantry',
+  jam: 'Pantry',
+  'peanut butter': 'Pantry',
+  'almond butter': 'Pantry',
+  pasta: 'Pantry',
+  rice: 'Pantry',
+  beans: 'Pantry',
+  lentils: 'Pantry',
+  oats: 'Pantry',
+  oatmeal: 'Pantry',
+  cereal: 'Pantry',
+  soup: 'Pantry',
+  'tomato sauce': 'Pantry',
+  'pasta sauce': 'Pantry',
+  ketchup: 'Pantry',
+  mustard: 'Pantry',
+  mayonnaise: 'Pantry',
+  mayo: 'Pantry',
+  'soy sauce': 'Pantry',
+  'hot sauce': 'Pantry',
+  salsa: 'Pantry',
+  hummus: 'Pantry',
+
+  // Household
+  'toilet paper': 'Household',
+  'paper towels': 'Household',
+  tissues: 'Household',
+  'dish soap': 'Household',
+  detergent: 'Household',
+  'laundry detergent': 'Household',
+  shampoo: 'Household',
+  conditioner: 'Household',
+  toothpaste: 'Household',
+  'toothbrush': 'Household',
+  soap: 'Household',
+  'hand soap': 'Household',
+  sponge: 'Household',
+  sponges: 'Household',
+  'trash bags': 'Household',
+  'garbage bags': 'Household',
+  'zip lock': 'Household',
+  foil: 'Household',
+  'plastic wrap': 'Household',
+};
+
+const CATEGORY_ORDER = [
+  'Produce', 'Dairy', 'Meat & Seafood', 'Bakery',
+  'Beverages', 'Snacks', 'Frozen', 'Pantry', 'Household', 'Other',
+];
+
+export function categorize(itemName) {
+  const lower = itemName.toLowerCase();
+
+  // Try exact match first
+  if (CATEGORY_MAP[lower]) return CATEGORY_MAP[lower];
+
+  // Try substring/prefix match (longest key wins)
+  const sortedKeys = Object.keys(CATEGORY_MAP).sort((a, b) => b.length - a.length);
+  for (const key of sortedKeys) {
+    if (lower.includes(key)) return CATEGORY_MAP[key];
+  }
+
+  return 'Other';
+}
+
+export { CATEGORY_ORDER };
