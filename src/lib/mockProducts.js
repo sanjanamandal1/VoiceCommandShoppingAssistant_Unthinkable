@@ -17,7 +17,7 @@ export const MOCK_PRODUCTS = [
   { id: 14, name: 'Toor Dal (1kg)',                brand: 'Tata Sampann', category: 'Pantry',         price: 140 },
   { id: 15, name: 'Chicken Breast (500g)',         brand: 'Suguna',       category: 'Meat & Seafood', price: 160 },
   { id: 16, name: 'Rohu Fish (1kg)',               brand: 'Fresh Catch',  category: 'Meat & Seafood', price: 220 },
-  { id: 17, name: 'Kurkure Masala Munch',          brand: 'Kurkure',      category: 'Snacks',         price: 30  },
+  { id: 17, name: 'Kurkure Masala Munch',          brand: 'PepsiCo',      category: 'Snacks',         price: 30  },
   { id: 18, name: '70% Dark Chocolate (80g)',      brand: 'Amul',         category: 'Snacks',         price: 110 },
 ];
 
