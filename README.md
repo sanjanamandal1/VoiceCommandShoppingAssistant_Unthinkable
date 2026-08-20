@@ -29,7 +29,7 @@ Voice features require Chrome (or a Chromium-based browser) — the Web Speech A
 ### List Management
 - Add, remove, and check off items by voice or by typing; both paths are always available
 - Adding an item already on the list bumps its quantity rather than creating a duplicate
-- Items are auto-categorised on add using a keyword-to-category lookup table (~150 entries across Dairy, Produce, Bakery, Meat & Seafood, Beverages, Snacks, Frozen, Pantry, Household) with a longest-match substring fallback — not a classifier
+- Items are auto-categorised on add using a keyword-to-category lookup table (~150 entries across Dairy, Fruits and Veggies, Bakery, Meat & Seafood, Beverages, Snacks, Frozen, Pantry, Household) with a longest-match substring fallback — not a classifier
 - List grouped by category in a fixed display order; categories not in the predefined list fall into "Other"
 - Checked items can be bulk-removed; list and removal history both persist across page reloads via `localStorage`
 
