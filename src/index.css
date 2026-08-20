@@ -257,19 +257,20 @@ a:hover {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background 0.15s ease;
+  transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.1s ease, background 0.15s ease;
   color: var(--text);
+  user-select: none;
 }
 
 .mic-button:hover:not(:disabled) {
-  transform: translate(-1.5px, -1.5px);
-  box-shadow: 3.5px 3.5px 0 var(--border);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--border);
   background: #FFFFFF;
 }
 
 .mic-button:active:not(:disabled) {
-  transform: translate(1px, 1px);
-  box-shadow: 0.5px 0.5px 0 var(--border);
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0 var(--border);
 }
 
 .mic-button:disabled {
@@ -468,18 +469,19 @@ a:hover {
   font-weight: 700;
   cursor: pointer;
   box-shadow: var(--shadow-btn);
-  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease;
+  transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.1s ease;
   letter-spacing: -0.01em;
+  user-select: none;
 }
 
 .add-item-form__submit:hover:not(:disabled) {
-  transform: translate(-1.5px, -1.5px);
-  box-shadow: 4px 4px 0 var(--border);
+  transform: translate(-2px, -2px);
+  box-shadow: 4.5px 4.5px 0 var(--border);
 }
 
 .add-item-form__submit:active:not(:disabled) {
-  transform: translate(1px, 1px);
-  box-shadow: 0.5px 0.5px 0 var(--border);
+  transform: translate(2.5px, 2.5px);
+  box-shadow: 0px 0px 0 var(--border);
 }
 
 .add-item-form__submit:disabled {
@@ -605,16 +607,26 @@ a:hover {
 .item-row__check-label input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
-  width: 19px;
-  height: 19px;
+  width: 20px;
+  height: 20px;
   border: 2px solid var(--border);
   border-radius: 5px;
   background: var(--bg-card);
   cursor: pointer;
   flex-shrink: 0;
-  transition: background 0.12s ease, border-color 0.12s ease;
+  transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.12s ease, border-color 0.12s ease, box-shadow 0.1s ease;
   position: relative;
-  box-shadow: 1px 1px 0 var(--border);
+  box-shadow: 1.5px 1.5px 0 var(--border);
+}
+
+.item-row__check-label input[type='checkbox']:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 2.5px 2.5px 0 var(--border);
+}
+
+.item-row__check-label input[type='checkbox']:active {
+  transform: translate(1.5px, 1.5px) scale(0.92);
+  box-shadow: 0px 0px 0 var(--border);
 }
 
 .item-row__check-label input[type='checkbox']:checked {
@@ -625,10 +637,10 @@ a:hover {
 .item-row__check-label input[type='checkbox']:checked::after {
   content: '';
   position: absolute;
-  left: 4.5px;
+  left: 5px;
   top: 1.5px;
   width: 6px;
-  height: 10px;
+  height: 11px;
   border: 2.2px solid #FFFFFF;
   border-top: none;
   border-left: none;
@@ -655,7 +667,7 @@ a:hover {
   padding: 4px 6px;
   border-radius: 4px;
   opacity: 0;
-  transition: opacity 0.15s ease, color 0.15s ease, background 0.15s ease;
+  transition: opacity 0.15s ease, color 0.15s ease, background 0.15s ease, transform 0.1s ease;
   line-height: 1;
 }
 
@@ -665,6 +677,10 @@ a:hover {
 .item-row__remove:hover {
   color: var(--danger);
   background: var(--danger-bg);
+  transform: scale(1.1);
+}
+.item-row__remove:active {
+  transform: scale(0.9);
 }
 .item-row__remove:focus-visible {
   opacity: 1;
@@ -684,16 +700,22 @@ a:hover {
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  box-shadow: 1px 1px 0 var(--border);
-  transition: transform 0.1s ease, box-shadow 0.1s ease, color 0.15s ease;
+  box-shadow: 1.5px 1.5px 0 var(--border);
+  transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.1s ease, color 0.15s ease, border-color 0.15s ease;
   margin-top: 4px;
+  user-select: none;
 }
 
 .clear-checked-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 2px 2px 0 var(--border);
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 3px 3px 0 var(--border);
   color: var(--danger);
   border-color: var(--danger);
+}
+
+.clear-checked-btn:active {
+  transform: translate(1.5px, 1.5px);
+  box-shadow: 0px 0px 0 var(--border);
 }
 
 /* ============================================================
@@ -781,17 +803,18 @@ a:hover {
   font-weight: 700;
   cursor: pointer;
   border: 2px solid var(--border);
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.1s ease;
+  user-select: none;
 }
 
 .confirmation-dialog__btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 var(--border);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--border);
 }
 
 .confirmation-dialog__btn:active {
-  transform: translate(1px, 1px);
-  box-shadow: none;
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0 var(--border);
 }
 
 .confirmation-dialog__btn--confirm {
@@ -856,35 +879,36 @@ a:hover {
 .suggestions-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
 }
 
-/* Chic Minimal Chips */
+/* Chic Minimal Chips with prominent clicking feedback */
 .suggestion-chip {
   background: var(--bg-card);
   border: 1.5px solid var(--border);
   border-radius: var(--r-pill);
   color: var(--text);
-  padding: 5px 13px;
+  padding: 6px 14px;
   font-size: 0.82rem;
   font-family: inherit;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 1px 1px 0 var(--border);
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.12s ease, color 0.12s ease;
+  box-shadow: 1.5px 1.5px 0 var(--border);
+  transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.1s ease, background 0.12s ease, color 0.12s ease;
+  user-select: none;
 }
 
 .suggestion-chip:hover {
   background: var(--text);
   color: #FFFFFF;
   border-color: var(--border);
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 var(--border);
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 3.5px 3.5px 0 var(--border);
 }
 
 .suggestion-chip:active {
-  transform: translate(1px, 1px);
-  box-shadow: none;
+  transform: translate(1.5px, 1.5px);
+  box-shadow: 0px 0px 0 var(--border);
 }
 
 .suggestion-chip--seasonal {
@@ -980,8 +1004,8 @@ a:hover {
 
 .search-filter__input:focus {
   outline: none;
-  box-shadow: 3px 3px 0 var(--border);
-  transform: translate(-1px, -1px);
+  box-shadow: 3.5px 3.5px 0 var(--border);
+  transform: translate(-1.5px, -1.5px);
 }
 
 .search-filter__submit {
@@ -996,17 +1020,18 @@ a:hover {
   font-weight: 700;
   cursor: pointer;
   box-shadow: var(--shadow-btn);
-  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease;
+  transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.1s ease;
+  user-select: none;
 }
 
 .search-filter__submit:hover {
-  transform: translate(-1.5px, -1.5px);
-  box-shadow: 3.5px 3.5px 0 var(--border);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--border);
 }
 
 .search-filter__submit:active {
-  transform: translate(1px, 1px);
-  box-shadow: none;
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0 var(--border);
 }
 
 .search-filter__filters {
