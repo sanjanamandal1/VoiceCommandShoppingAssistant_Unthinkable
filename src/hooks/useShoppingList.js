@@ -16,6 +16,10 @@ function load() {
   }
 }
 
+function toTitleCase(str) {
+  return str.replace(/\w\S*/g, (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+}
+
 export function useShoppingList() {
   const [items, setItems] = useState(load);
 
@@ -27,11 +31,12 @@ export function useShoppingList() {
   const addItem = useCallback((name, quantity = 1, unit = null) => {
     const trimmed = name.trim();
     if (!trimmed) return null;
+    const formattedName = toTitleCase(trimmed);
 
     setItems((prev) => {
       // If item already on the list, bump quantity instead of duplicating
       const existing = prev.find(
-        (i) => i.name.toLowerCase() === trimmed.toLowerCase() && !i.checked
+        (i) => i.name.toLowerCase() === formattedName.toLowerCase() && !i.checked
       );
       if (existing) {
         return prev.map((i) =>
@@ -40,17 +45,17 @@ export function useShoppingList() {
       }
       const newItem = {
         id: generateId(),
-        name: trimmed,
+        name: formattedName,
         quantity,
         unit,
-        category: categorize(trimmed),
+        category: categorize(formattedName),
         checked: false,
         addedAt: Date.now(),
       };
       return [...prev, newItem];
     });
 
-    return trimmed;
+    return formattedName;
   }, []);
 
   const removeItem = useCallback((id) => {

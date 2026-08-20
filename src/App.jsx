@@ -127,7 +127,11 @@ export default function App() {
               {items.length} item{items.length !== 1 ? 's' : ''}
             </span>
           )}
-          <span className="header-sub">Chrome only</span>
+          {!isSupported && (
+            <span className="header-unsupported-badge" role="status">
+              Voice unsupported — use text input
+            </span>
+          )}
         </div>
       </header>
 
