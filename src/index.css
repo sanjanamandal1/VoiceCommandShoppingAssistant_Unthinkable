@@ -1,36 +1,37 @@
 /* ============================================================
-   Tokens — diverged from LocalDrop: forest green borders,
-   tangerine primary, butter yellow secondary, warm parchment bg
+   Tokens — line-grid bg, near-black borders,
+   cobalt primary, warm amber secondary
    ============================================================ */
 :root {
-  --bg:          #EDE7DA;
-  --bg-card:     #FAF8F2;
-  --bg-muted:    #E3DDD0;
+  --bg:          #F0EEE6;
+  --bg-card:     #FAFAF7;
+  --bg-muted:    #E8E6DC;
 
-  --border:      #243423;      /* deep forest green — not pure black */
-  --border-mid:  #3D5C3A;
-  --border-thin: #C8C2B2;
+  --border:      #18181B;      /* near-black — clean, high contrast */
+  --border-mid:  #3F3F46;
+  --border-thin: #D4D2C8;
 
-  --text:        #1C2B1C;
-  --text-2:      #445244;
-  --text-3:      #8A9680;
+  --text:        #18181B;
+  --text-2:      #52525B;
+  --text-3:      #A1A1AA;
 
-  --orange:      #F05A28;      /* tangerine — distinct from LocalDrop pink */
-  --orange-fg:   #FFFFFF;
-  --orange-dim:  rgba(240, 90, 40, 0.1);
-  --yellow:      #FFE135;      /* butter — distinct from LocalDrop lime */
-  --yellow-fg:   #1C2B1C;
-  --teal:        #0B6E5C;      /* third accent for search/active states */
-  --teal-dim:    rgba(11, 110, 92, 0.1);
+  --cobalt:      #1D4ED8;      /* deep cobalt — primary actions */
+  --cobalt-fg:   #FFFFFF;
+  --cobalt-dim:  rgba(29, 78, 216, 0.08);
+  --amber:       #F59E0B;      /* warm amber — secondary highlights */
+  --amber-fg:    #18181B;
+  --amber-dim:   rgba(245, 158, 11, 0.12);
+  --sage:        #4D7C5F;      /* sage green — search/teal role */
+  --sage-dim:    rgba(77, 124, 95, 0.1);
 
-  --success:     #1A6B42;
-  --success-bg:  #EDFAF3;
-  --danger:      #C93B1A;
-  --danger-bg:   #FEF0EB;
-  --warn:        #B97A00;
-  --warn-bg:     #FFF9E6;
+  --success:     #15803D;
+  --success-bg:  #F0FDF4;
+  --danger:      #DC2626;
+  --danger-bg:   #FEF2F2;
+  --warn:        #D97706;
+  --warn-bg:     #FFFBEB;
 
-  /* Hard flat shadows — same brutalist idea, green-tinted */
+  /* Hard flat shadows */
   --shadow-card: 4px 4px 0px var(--border);
   --shadow-sm:   2px 2px 0px var(--border);
   --shadow-btn:  3px 3px 0px var(--border);
@@ -48,10 +49,12 @@ html { font-size: 16px; }
 
 body {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  /* dot-grid — different texture from LocalDrop's line grid */
+  /* line-grid — same signature texture as LocalDrop */
   background-color: var(--bg);
-  background-image: radial-gradient(circle, rgba(36,52,35,0.18) 1px, transparent 1px);
-  background-size: 22px 22px;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
   color: var(--text);
   min-height: 100vh;
   line-height: 1.55;
@@ -59,11 +62,11 @@ body {
 }
 
 ul { list-style: none; }
-a { color: var(--teal); font-weight: 500; }
+a { color: var(--cobalt); font-weight: 500; }
 a:hover { text-decoration: underline; }
 
 :focus-visible {
-  outline: 2.5px solid var(--orange);
+  outline: 2.5px solid var(--cobalt);
   outline-offset: 2px;
   border-radius: var(--r-sm);
 }
@@ -101,14 +104,14 @@ a:hover { text-decoration: underline; }
   gap: 10px;
 }
 
-/* Butter yellow pill — same shape as LocalDrop but different color */
+/* Amber pill badge */
 .header-badge {
   font-size: 0.58rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  background: var(--yellow);
-  color: var(--yellow-fg);
+  background: var(--amber);
+  color: var(--amber-fg);
   border: 1.5px solid var(--border);
   border-radius: var(--r-pill);
   padding: 3px 10px;
@@ -121,11 +124,11 @@ a:hover { text-decoration: underline; }
   gap: 10px;
 }
 
-/* Live counter — teal pill, appears when items exist */
+/* Live counter — cobalt pill, appears when items exist */
 .header-count {
   font-size: 0.72rem;
   font-weight: 700;
-  background: var(--teal);
+  background: var(--cobalt);
   color: #fff;
   border: 1.5px solid var(--border);
   border-radius: var(--r-pill);
@@ -206,7 +209,7 @@ a:hover { text-decoration: underline; }
   display: flex;
   align-items: center;
   gap: 20px;
-  border-top: 4px solid var(--orange);   /* accent stripe — differentiator */
+  border-top: 4px solid var(--cobalt);   /* accent stripe — differentiator */
 }
 
 /* ============================================================
@@ -241,9 +244,9 @@ a:hover { text-decoration: underline; }
 
 .mic-button:disabled { opacity: 0.35; cursor: not-allowed; }
 
-/* Listening — tangerine fill */
+/* Listening — cobalt fill */
 .mic-button--listening {
-  background: var(--orange);
+  background: var(--cobalt);
   border-color: var(--border);
   color: #fff;
   animation: mic-shake 0.45s ease infinite alternate;
@@ -259,7 +262,7 @@ a:hover { text-decoration: underline; }
   position: absolute;
   inset: -5px;
   border-radius: 50%;
-  border: 2px solid var(--orange);
+  border: 2px solid var(--cobalt);
   animation: ring-out 1.3s ease-out infinite;
   pointer-events: none;
 }
@@ -297,7 +300,7 @@ a:hover { text-decoration: underline; }
 
 .transcript-hint {
   font-size: 0.875rem;
-  color: var(--orange);
+  color: var(--cobalt);
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -309,7 +312,7 @@ a:hover { text-decoration: underline; }
   display: inline-block;
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--cobalt);
   animation: blink 0.8s ease-in-out infinite;
 }
 
@@ -353,8 +356,8 @@ a:hover { text-decoration: underline; }
 .add-item-form__input::placeholder { color: var(--text-3); font-weight: 400; }
 .add-item-form__input:focus {
   outline: none;
-  border-color: var(--orange);
-  box-shadow: 3px 3px 0 var(--orange);
+  border-color: var(--cobalt);
+  box-shadow: 3px 3px 0 var(--cobalt);
   transform: translate(-1px, -1px);
 }
 
@@ -375,18 +378,18 @@ a:hover { text-decoration: underline; }
 
 .add-item-form__qty:focus {
   outline: none;
-  border-color: var(--orange);
-  box-shadow: 2px 2px 0 var(--orange);
+  border-color: var(--cobalt);
+  box-shadow: 2px 2px 0 var(--cobalt);
 }
 
-/* Tangerine primary button */
+/* Cobalt primary button */
 .add-item-form__submit {
   height: 46px;
   padding: 0 22px;
-  background: var(--orange);
+  background: var(--cobalt);
   border: 2px solid var(--border);
   border-radius: var(--r-pill);
-  color: var(--orange-fg);
+  color: var(--cobalt-fg);
   font-size: 0.875rem;
   font-family: inherit;
   font-weight: 700;
@@ -432,7 +435,7 @@ a:hover { text-decoration: underline; }
   box-shadow: var(--shadow-card);
 }
 
-/* Heading — butter yellow strip with emoji + item count */
+/* Heading — amber strip with emoji + item count */
 .list-category__heading {
   display: flex;
   align-items: center;
@@ -443,7 +446,7 @@ a:hover { text-decoration: underline; }
   text-transform: uppercase;
   color: var(--text);
   padding: 9px 14px;
-  background: var(--yellow);
+  background: var(--amber);
   border-bottom: 2px solid var(--border);
 }
 
@@ -529,8 +532,8 @@ a:hover { text-decoration: underline; }
 .item-row__qty {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--text-2);
-  background: var(--yellow);
+  color: var(--amber-fg);
+  background: var(--amber);
   border: 1.5px solid var(--border);
   border-radius: 5px;
   padding: 1px 7px;
@@ -580,8 +583,8 @@ a:hover { text-decoration: underline; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--teal-dim);
-  border: 1.5px solid var(--teal);
+  background: var(--cobalt-dim);
+  border: 1.5px solid var(--cobalt);
   border-radius: var(--r-sm);
   padding: 8px 14px;
   font-size: 0.82rem;
@@ -591,7 +594,7 @@ a:hover { text-decoration: underline; }
 .search-active-bar__clear {
   background: none;
   border: none;
-  color: var(--teal);
+  color: var(--cobalt);
   font-family: inherit;
   font-size: 0.82rem;
   font-weight: 700;
@@ -664,7 +667,7 @@ a:hover { text-decoration: underline; }
 }
 
 .confirmation-dialog__btn--confirm {
-  background: var(--orange);
+  background: var(--cobalt);
   color: #fff;
   box-shadow: var(--shadow-btn);
 }
@@ -684,7 +687,7 @@ a:hover { text-decoration: underline; }
   border-radius: var(--r);
   padding: 16px;
   box-shadow: var(--shadow-card);
-  border-top: 4px solid var(--yellow);
+  border-top: 4px solid var(--amber);
 }
 
 .suggestions-panel__heading {
@@ -695,6 +698,7 @@ a:hover { text-decoration: underline; }
   color: var(--text-2);
   margin-bottom: 14px;
 }
+
 
 .suggestions-section { margin-bottom: 14px; }
 .suggestions-section:last-child { margin-bottom: 0; }
@@ -736,7 +740,7 @@ a:hover { text-decoration: underline; }
 }
 
 .suggestion-chip:hover {
-  background: var(--orange);
+  background: var(--cobalt);
   color: #fff;
   border-color: var(--border);
   transform: translate(-1px, -1px);
@@ -747,12 +751,12 @@ a:hover { text-decoration: underline; }
 
 /* Seasonal chips — yellow tinted */
 .suggestion-chip--seasonal {
-  background: var(--yellow);
-  color: var(--yellow-fg);
+  background: var(--amber-dim);
+  color: var(--text);
   border-color: var(--border);
 }
 
-.suggestion-chip--seasonal:hover { background: var(--orange); color: #fff; }
+.suggestion-chip--seasonal:hover { background: var(--cobalt); color: #fff; }
 
 .suggestion-chip__badge { font-size: 0.65rem; color: var(--text-3); margin-left: 4px; }
 
@@ -769,7 +773,7 @@ a:hover { text-decoration: underline; }
   border-radius: var(--r);
   padding: 16px;
   box-shadow: var(--shadow-card);
-  border-top: 4px solid var(--teal);
+  border-top: 4px solid var(--sage);
 }
 
 .search-filter__heading {
@@ -817,14 +821,14 @@ a:hover { text-decoration: underline; }
 .search-filter__input::placeholder { color: var(--text-3); font-weight: 400; }
 .search-filter__input:focus {
   outline: none;
-  border-color: var(--teal);
-  box-shadow: 2px 2px 0 var(--teal);
+  border-color: var(--sage);
+  box-shadow: 2px 2px 0 var(--sage);
 }
 
 .search-filter__submit {
   height: 40px;
   padding: 0 16px;
-  background: var(--teal);
+  background: var(--sage);
   border: 2px solid var(--border);
   border-radius: var(--r-pill);
   color: #fff;
@@ -867,7 +871,7 @@ a:hover { text-decoration: underline; }
 }
 
 .search-filter__range {
-  accent-color: var(--teal);
+  accent-color: var(--sage);
   width: 100%;
   cursor: pointer;
 }
